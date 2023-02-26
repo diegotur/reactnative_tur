@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View, Dimensions } from "react-native";
 import { ListItem, NewItemHeader, Modal } from "./src/components";
 
 export default function App() {
@@ -9,23 +9,14 @@ export default function App() {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const onChangeText = (text) => {
+    text !== '' &&
     setItemText(text);
   };
 
-  useEffect(() => {
-    console.log("useEffect", "itemText", itemText, "ITEMS", items);
-  }, []);
-
   const addItemToState = () => {
-    console.log("addItemToState - start SIN JSON", items, itemText);
-    console.log(
-      "addItemToState - start CON JSON",
-      JSON.stringify({ items, itemText })
-    );
     const newArr = [...items, { id: Date.now(), value: itemText }];
-    setItems(newArr);
+    setItems(newArr) ;
     setItemText("");
-    console.log("addItemToState - end", "items", newArr);
   };
 
   const openModal = (item) => {
@@ -39,21 +30,20 @@ export default function App() {
 
   const onDeleteModal = (id) => {
     setModalVisible(!modalVisible);
-    setItems((oldArry) => oldArry.filter((item) => item.id !== id));
+    setItems((oldArray) => oldArray.filter((item) => item.id !== id));
     setSelectedItem(null);
   };
 
   return (
     <View style={styles.screen}>
-      {/* ADDITEM COMPONENT */}
+      <View style={styles.header}>
       <NewItemHeader
         onChangeText={onChangeText}
         itemText={itemText}
         addItemToState={addItemToState}
-      />
-      {/* LIST COMPONENT */}
+        />
+        </View>
       <ListItem items={items} openModal={openModal} />
-      {/* MODAl COMPONENT */}
       <Modal
         modalVisible={modalVisible}
         selectedItem={selectedItem}
@@ -66,7 +56,18 @@ export default function App() {
 
 const styles = StyleSheet.create({
   screen: {
+    marginTop: 40,
     padding: 30,
-    flex: 1,
+    height: Dimensions.get("window").height,
   },
+  header: {
+    backgroundColor: "#E0A83F",
+    width: Dimensions.get("window").width,
+    marginTop: -30,
+    marginLeft: -30,
+    height: 100,
+    borderBottomColor: "white",
+    borderBottomWidth: 0.5,
+  },
+
 });

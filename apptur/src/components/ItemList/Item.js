@@ -18,13 +18,14 @@ export default Item;
 
 const styles = StyleSheet.create({
     itemContainer: {
-        margin: 10,
-        padding: 10,
-        borderRadius: 5,
-        backgroundColor: "#ccc",
+      marginTop: 45,
+      flex: 1,
+  
       },
       item: {
         padding: 10,
         textAlign: "center",
+        backgroundColor: "#E3BA6D",
+      
       },
 });

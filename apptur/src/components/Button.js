@@ -1,8 +1,9 @@
 import { StyleSheet, Text, Pressable } from "react-native";
 import React from "react";
 
-const Button = ({
+const Buttons = ({
     styleButtonType,
+    styleButtonTextType,
     onPress,
     title
 }) => {
@@ -11,17 +12,22 @@ const Button = ({
             style={[styles.button, styleButtonType]}
             onPress={onPress}
         >
-            <Text>{title}</Text>
+            <Text style={[styles.buttonText, styleButtonTextType]}>{title}</Text>
         </Pressable>
     );
 };
 
-export default Button;
+export default Buttons;
 
 const styles = StyleSheet.create({
     button: {
-        borderRadius: 20,
-        padding: 10,
-        marginHorizontal: 10,
+        borderRadius: 5,
+        borderColor: "black",
     },
+    buttonText: {
+        color: "white",
+        alignItems: "center",
+        fontSize: 17,
+    },
+    
 });

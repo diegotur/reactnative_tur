@@ -1,10 +1,10 @@
-import { StyleSheet, Text, FlatList } from "react-native";
+import { StyleSheet, FlatList } from "react-native";
 import React from "react";
 import Item from "./Item";
 
 const List = ({ items, openModal }) => {
   return (
-    <FlatList
+    <FlatList style={styles.flatList}
       data={items}
       renderItem={(itemData) => {
         return <Item itemData={itemData} openModal={openModal} />;
@@ -16,4 +16,10 @@ const List = ({ items, openModal }) => {
 
 export default List;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  flatList: {
+    marginTop: 15,
+    
+  },
+
+});

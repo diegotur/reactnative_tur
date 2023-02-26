@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, Modal as RNmodal } from "react-native";
+import { StyleSheet, Text, Dimensions, View, Modal as RNmodal } from "react-native";
 import React from "react";
-import Button from "./Button";
+import Buttons from "./Button";
 
 const Modal = ({
     modalVisible,
@@ -12,19 +12,17 @@ const Modal = ({
         <RNmodal animationType="slide" transparent={true} visible={modalVisible}>
             <View style={styles.modalMainView}>
                 <View style={styles.modalView}>
-                    <Text style={styles.modalTitle}>Eliminar Item</Text>
+                    <Text style={styles.modalTitle}>ELIMINAR ITEM</Text>
                     <Text style={styles.modalText}>
                         ¿Está seguro que desea eliminar el item{" "}
-                        <Text style={styles.modalBoldText}>{selectedItem?.value}</Text>?
+                        <Text >{selectedItem?.value}</Text>?
                     </Text>
                     <View style={styles.modalActions}>
-                        <Button
-                            styleButtonType={styles.buttonCancel}
+                        <Buttons
                             title="Cancelar"
                             onPress={onCancelModal}
                         />
-                        <Button
-                            styleButtonType={styles.buttonDelete}
+                        <Buttons
                             title="Eliminar"
                             onPress={() => {
                                 onDeleteModal(selectedItem.id);
@@ -41,49 +39,34 @@ export default Modal;
 
 const styles = StyleSheet.create({
     modalMainView: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        height: 150,
+        marginTop: 300,
+        width: "90%",
+        alignSelf: 'center',
+        backgroundColor: 'black',
+
     },
     modalView: {
-        margin: 20,
-        backgroundColor: "white",
-        borderRadius: 20,
-        padding: 35,
+        padding: 10,
+        marginBottom: 10,
+        width: '100%',
         alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5,
     },
     modalTitle: {
         padding: 10,
-        borderRadius: 5,
-        fontSize: 20,
-        fontWeight: "bold",
-        textAlign: "center",
+        textAlign: 'center',
+        fontSize: 25,
+        fontWeight: 'bold',
+        color: "white",
     },
     modalText: {
-        marginBottom: 15,
-        textAlign: "center",
-    },
-    modalBoldText: {
-        fontWeight: "bold",
-        textDecorationLine: "underline",
+        color: "yellow",
+        fontSize: 16,
     },
     modalActions: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-    },
-
-    buttonCancel: {
-        backgroundColor: "#2196F3",
-    },
-    buttonDelete: {
-        backgroundColor: "#f44336",
-    },
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        width: "100%",
+        marginTop: 28,
+},
 });
