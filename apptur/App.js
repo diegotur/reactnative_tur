@@ -9,14 +9,17 @@ export default function App() {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const onChangeText = (text) => {
-    text !== '' &&
+    text.length > 0  &&
     setItemText(text);
   };
 
+
+
   const addItemToState = () => {
-    const newArr = [...items, { id: Date.now(), value: itemText }];
-    setItems(newArr) ;
-    setItemText("");
+    if (itemText.length > 0){
+      setItems (newArr = [...items, { id: Date.now(), value: itemText }]);
+      setItemText("");
+    }
   };
 
   const openModal = (item) => {
