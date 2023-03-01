@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    width: 80,
-    marginLeft: 20,
+    width: 100,
+    marginLeft: 5,
   },
   input: {
     width: 300,
