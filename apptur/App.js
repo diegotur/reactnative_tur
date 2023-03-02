@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Dimensions } from "react-native";
-import { ListItem, NewItemHeader, Modal } from "./src/components";
+import { ListItem, NewItemHeader, Modal, Title } from "./src/components";
 
 export default function App() {
   const [itemText, setItemText] = useState("");
@@ -46,6 +46,8 @@ export default function App() {
         addItemToState={addItemToState}
         />
         </View>
+        <Title>
+        </Title>
       <ListItem items={items} openModal={openModal} />
       <Modal
         modalVisible={modalVisible}

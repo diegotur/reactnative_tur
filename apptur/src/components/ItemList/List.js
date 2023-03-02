@@ -18,8 +18,7 @@ export default List;
 
 const styles = StyleSheet.create({
   flatList: {
-    marginTop: 15,
-    
+    marginTop: 0,
   },
 
 });

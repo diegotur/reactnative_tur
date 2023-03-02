@@ -9,12 +9,13 @@ const Item = ({ itemData, openModal }) => {
     <Pressable
       style={styles.itemContainer}
       onPress={() => {
-        openModal(itemData.item);
+        if (checked != true) {
+          openModal(itemData.item);
+        }
       }}
     >
       <Text style={styles.item}>{itemData.item.value}</Text>
       <Pressable
-        //style={styles.checkBox} 
         style={() => [
           {
             backgroundColor: checked
@@ -29,7 +30,10 @@ const Item = ({ itemData, openModal }) => {
             borderWidth: 3,
             marginTop: 6.5,
           }]}
-        onPress={() => { setChecked((prevChecked) => !prevChecked) }}>
+        onPress={() => {
+          setChecked((prevChecked) => !prevChecked)
+          console.log(checked)
+        }}>
       </Pressable>
 
     </Pressable>
@@ -41,20 +45,12 @@ export default Item;
 
 const styles = StyleSheet.create({
   itemContainer: {
-    marginTop: 45,
+    marginTop: 15,
     flex: 1,
     justifyContent: "space-around",
     width: "100%",
     flexDirection: "row",
   },
-  checkBox: {
-    width: "7%",
-    height: "65%",
-    borderRadius: 50,
-    borderWidth: 3,
-    marginTop: 6.5,
-  },
-
   item: {
     padding: 10,
     textAlign: "center",

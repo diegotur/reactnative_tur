@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     width: 100,
-    marginLeft: 5,
+    marginLeft: 10,
   },
   input: {
     width: 300,
@@ -40,5 +40,7 @@ const styles = StyleSheet.create({
   },
   addButton:{
     color: "black",
+    marginLeft: 10,
+
   }
 });
